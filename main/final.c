@@ -369,8 +369,7 @@ int wordle()
     free(wordsList);
     free(fiveLetterWord);
     free(guess);
-    getchar();
-    return 0;
+     return 0;
 }
 
 // stats calculation for wordle
