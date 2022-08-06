@@ -10,24 +10,23 @@
 char str[200] = {"apple"};
 char clue1[6] = {"XXXXX"};
 
-//FUNCTIONS FOR ALIGNMENT OF OUTPUT
+// CLEAR THE SCREEN
 
-// For center placement vertically
-void vertmid() 
+void vertmid() // For center placement vertically
 {
-    printf("\n\n\n\n\n\n\n\n\n\n");
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
-// to print a horizontal line (spaceH1=spacing from left column, lengthH=length of line, n=no of line, c=character)
-void horiline(int spaceH1, int lengthH, int n, char c) 
+void horiline(int spaceH1, int lengthH, int n, char c) // to print a horizontal line(spaceH1=spacing from left column,lengthH=length of line,n=no of line,c=character)
 {
     int k, h, j;
+    for (j = 0; j < n; j++)
+    {
     for (h = 0; h < spaceH1; h++)
     {
         printf("\t");
     }
-    for (j = 0; j < n; j++)
-    {
+    
         for (k = 0; k < lengthH; k++) // 70 for menu
         {
             printf("%C", c);
@@ -35,10 +34,8 @@ void horiline(int spaceH1, int lengthH, int n, char c)
         printf("\n");
     }
 }
-
-// gives bordered line
-void vertiline(int spaceV1, int noV, int lengthV, char c) 
-//spaceV1 gives spacing from first left column on console, noV determines no of vertical border, lengthV determines the width of vertical border
+void vertiline(int spaceV1, int noV, int lengthV, char c) // gives bordered line
+// spcaeV1 gives spcaing from first left column on console,noV determines no of vertical border,lengthV determines the width of vertical border
 {
     int m, g;
     int p;
@@ -59,19 +56,15 @@ void vertiline(int spaceV1, int noV, int lengthV, char c)
     }
 }
 
-// gives spacing from left column of console screen
-void space(int n) 
-// n determines no of spacing from left column in terms of \t
+void space(int n) // this fumction gives spacing from left column of console screen
+// n determines no of spacing from left column in terms od \t
 {
     int q;
     for (q = 0; q < n; q++)
         printf("\t");
 }
-
- // assign border and position to string
-void alignborder(char str[], int spaceAB1, int spaceAB2, int lengthAB, char c)
-// lengthAB determines spacing between two vertical border, spaceAB1=determines no of spacing from left column in terms of \t
-// spaceAB2=determines no of spacing from left of first vertical border in terms of \t
+void alignborder(char str[], int spaceAB1, int spaceAB2, int lengthAB, char c) // assign border and position to string
+// lengthAB dtermines spacing between two vertical border,spaceAB1=determines no of spacing from left column in terms od \t,spaceAB2=determines no of spacing from left of first vertical border in terms od \t
 {
     int a, aum = 0, u;
     a = strlen(str);
@@ -88,10 +81,9 @@ void alignborder(char str[], int spaceAB1, int spaceAB2, int lengthAB, char c)
     printf("\n");
 }
 
-// to provide two vertical line with a string and processessible integer
 void alignborderno(char str[], int spaceABN1, int spaceABN2, int lengthABN, char c, int i)
-// lengthABN determines spacing between two vertical border,spaceABN1=determines no of spacing from left column in terms od \t
-//spaceABN2=determines no of spacing from left of first vertical border in terms od \t, i= integer value to printed
+// to provide two vwertical line with a string and processessible integer
+// lengthABN dtermines spacing between two vertical border,spaceABN1=determines no of spacing from left column in terms od \t,spaceABN2=determines no of spacing from left of first vertical border in terms od \t,i=integer value to printed.
 
 {
     int sum = 0, u, a = 0, no = i, remainder = 0, count = 0;
@@ -102,24 +94,22 @@ void alignborderno(char str[], int spaceABN1, int spaceABN2, int lengthABN, char
         no = no / 10;
         count++;
     }
-    sum = lengthABN - (spaceABN2 * 8) - a - count - 1;
+    sum = lengthABN - (spaceABN2 * 8) - a - count-1;
 
     for (u = 0; u < spaceABN1; u++)
         printf("\t");
     printf("%c", c);
     for (u = 0; u < spaceABN2; u++)
         printf("\t");
-    printf("%s : %d", str, i);
+    printf("%s= %d",str,i);
     for (u = 0; u < sum; u++)
         printf(" ");
     printf("%c", c);
     printf("\n");
 }
-
-// to provide two vertical line with a string and processessible real no.
 void alignborderfloatno(char str[], int spaceABFN1, int spaceABFN2, int lengthABFN, char c, float i)
-// lengthABFN determines spacing between two vertical border, spaceABFN1=determines no of spacing from left column in terms od \t
-//spaceABFN2=determines no of spacing from left of first vertical border in terms od \t, i=real no. value to be printed.
+// to provide two vwertical line with a string and processessible real no.
+// lengthABFN dtermines spacing between two vertical border,spaceABFN1=determines no of spacing from left column in terms od \t,spaceABFN2=determines no of spacing from left of first vertical border in terms od \t,i=real no. value to be printed.
 
 {
     int sum = 0, u, a = 0;
@@ -130,7 +120,7 @@ void alignborderfloatno(char str[], int spaceABFN1, int spaceABFN2, int lengthAB
     printf("%c", c);
     for (u = 0; u < spaceABFN2; u++)
         printf("\t");
-    printf("%s: %2.f", str, i);
+    printf("%s= %2.f", str, i);
     for (u = 0; u < sum; u++)
         printf(" ");
     printf("%c", c);
@@ -154,6 +144,7 @@ bool processGuess();
 int wordleTitleScreen();
 
 // FUNCTIONS FOR MAIN MENU
+
 void menu();
 int tictactoe();
 int wordle();
@@ -162,6 +153,7 @@ int stats();
 int choice;
 
 // MAIN
+
 int main()
 {
 
@@ -172,20 +164,25 @@ int main()
 }
 
 // MENU
+
 void menu()
 {
     system("cls");
     vertmid();
-    horiline(5, 70, 1, '.');
-    vertiline(5, 1, 68, ':'); // width two less than horizontal line
-    space(5);
-    printf(":\t\t\t\tGAME MENU\t\t\t     :\n");
-    vertiline(5, 1, 68, ':');
-    printf("\t\t\t\t\t:\t\t1. Tic-Tac-Toe\t\t\t\t\t     :\n");
-    printf("\t\t\t\t\t:\t\t2. Wordle\t\t\t\t\t     :\n\t\t\t\t\t:\t\t");
-    printf("3. Exit Menu\t\t\t\t\t     :\n");
-    vertiline(5, 1, 68, ':');
-    horiline(5, 70, 1, '.');
+    horiline(8, 70, 1, '.');
+    vertiline(8, 1, 68, ':'); // width two less than horizontal line
+    strcpy(str,"GAME MENU");    
+    alignborder(str,8,4,68,':');
+    vertiline(8, 1, 68, ':');
+   strcpy(str,"1. Tic-Tac-Toe");
+   alignborder(str,8,3,68,':');
+   strcpy(str,"2. Wordle");
+   alignborder(str,8,3,68,':');
+   strcpy(str,"3. Exit Menu");
+   alignborder(str,8,3,68,':');
+   
+    vertiline(8, 1, 68, ':');
+    horiline(8, 70, 1, '.');
     scanf("%d", &choice);
     if (choice == 1)
     {
@@ -207,6 +204,7 @@ void menu()
         alignborder(str, 4, 4, 88, '/');
         vertiline(4, 1, 88, '/');
         horiline(4, 90, 1, '/');
+        
     }
     else
     {
@@ -219,7 +217,7 @@ void menu()
         alignborder(str, 4, 4, 88, '/');
         vertiline(4, 1, 88, '/');
         horiline(4, 90, 1, '/');
-        printf("Press any key to continue.");
+        printf("Press any key to continue");
         getch();
 
         menu();
@@ -235,7 +233,7 @@ void createStats();
 int wordle()
 {
 
-    int endValue;
+   
 
     // load wordle title screen
 
@@ -306,15 +304,16 @@ int wordle()
         guessed_correctly = processGuess(answer, guess);
     }
 
+    float winPercent = 0;
+
     // display end of game message
     system("cls");
     horiline(1, 100, 1, '*');
     if (guessed_correctly)
     {
 
-        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD ON ATTEMPT");
-        alignborderno(str, 1, 2, 97, '*', (num_of_guesses - 1));
-
+        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD ON ATTEMPT ");
+        alignborderno(str, 1, 2, 98, '*', (num_of_guesses - 1));
         createStats(1);
     }
     else
@@ -341,8 +340,7 @@ int wordle()
         menu();
     }
 
-    scanf("%i", &endValue);
-
+    
     for (int i = 0; i < wordCount; i++)
     {
         free(wordsList[i]);
@@ -389,13 +387,13 @@ void createStats(int flag)
         fprintf(streak, "%d", 0);
         s = 0;
     }
-    int total=w+l;
+
     winpercent = (float)w / ((float)w + (float)l) * 100.0;
     strcpy(str, "TOTAL GAMES PLAYED");
-    alignborderno(str, 1, 2, 97, '*', total);
-    strcpy(str, "WIN PERCENT ");
+    alignborderno(str, 1, 2, 98,'*',(w+1));
+    strcpy(str, "WIN PERCENT");
     alignborderfloatno(str, 1, 2, 96, '*', winpercent);
-    strcpy(str, "WIN STREAK ");
+    strcpy(str, "WIN STREAK");
     alignborderfloatno(str, 1, 2, 96, '*', s);
     fclose(wins);
     fclose(losses);
@@ -422,7 +420,7 @@ bool processGuess(const char *theAnswer, const char *theGuess)
     }
     printf("\n");
 
-    // second pass, look for letters there but elsewhere
+    // second pass, look for there but elsewhere
     for (int i = 0; i < 5; i++)
     {
         if (clue[i] == 'X')
@@ -526,7 +524,7 @@ int tictactoe()
     alignborder(str, 4, 2, 68, ':');
     vertiline(4, 1, 68, ':');
     vertiline(4, 1, 68, ':');
-    strcpy(str, "The positions are as specified below:");
+    strcpy(str, "The positons are as specified below:");
     alignborder(str, 4, 2, 68, ':');
     vertiline(4, 1, 68, ':');
     vertiline(4, 1, 68, ':');
@@ -541,7 +539,7 @@ int tictactoe()
 
     do
     {
-            horiline(6, 70, 1, '.');
+ horiline(6, 70, 1, '.');
             vertiline(6, 1, 68, ':');
             strcpy(str, "LET THE GAME BEGIN !!");
             alignborder(str, 6, 2, 68, ':');
@@ -607,7 +605,7 @@ int tictactoe()
         }
         r++;
     } while (response == 1);
-    system("cls");
+    
     return 0;
 }
 
@@ -807,12 +805,12 @@ void printWinner()
     if (winner == PLAYER1)
     {
         psc1++;
-        printf("PLAYER 1 IS THE WINNER OF THIS GAME *<|:-) \\o//");
+        printf("PLAYER 1 IS THE WINNER OF THIS GAME *<|:-) \\o");
     }
     else if (winner == PLAYER2)
     {
         psc2++;
-        printf("PLAYER 2 IS THE WINNER OF THIS GAME *<|:-) \\o//");
+        printf("PLAYER 2 IS THE WINNER OF THIS GAME *<|:-) o/");
     }
     else
     {
