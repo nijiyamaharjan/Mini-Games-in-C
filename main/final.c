@@ -200,7 +200,7 @@ void menu()
    
     vertiline(8, 1, 68, ':');
     horiline(8, 70, 1, '.');
-    printf("Enter ur choice(1-3)");
+    printf("Enter your choice(1-3) : ");
     scanf("%d", &choice);
     if (choice == 1)
     {
@@ -331,7 +331,7 @@ int wordle()
     if (guessed_correctly)
     {
 
-        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD IN");
+        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD ON ATTEMPT ");
         alignborderno(str, 1, 2, 98, '*', (num_of_guesses - 1));
 
         createStats(1);
@@ -369,7 +369,8 @@ int wordle()
     free(wordsList);
     free(fiveLetterWord);
     free(guess);
-     return 0;
+    getchar();
+    return 0;
 }
 
 // stats calculation for wordle
@@ -734,10 +735,10 @@ void player1Move()
     do
     {
         printf("PLayer 1\n");
-        printf("Enter row (1-3):");
+        printf("Enter row (1-3): ");
         scanf("%d", &x);
         x--;
-        printf("Enter column (1-3):");
+        printf("Enter column (1-3): ");
         scanf("%d", &y);
         y--;
         if (board[x][y] != ' ')
@@ -761,10 +762,10 @@ void player2Move()
     do
     {
         printf("PLayer 2\n");
-        printf("Enter row (1-3):");
+        printf("Enter row (1-3): ");
         scanf("%d", &x1);
         x1--;
-        printf("Enter column (1-3):");
+        printf("Enter column (1-3): ");
         scanf("%d", &y1);
         y1--;
         if (board[x1][y1] != ' ')
