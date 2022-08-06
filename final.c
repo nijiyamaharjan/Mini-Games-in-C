@@ -35,7 +35,7 @@ void horiline(int spaceH1, int lengthH, int n, char c) // to print a horizontal 
     }
 }
 void vertiline(int spaceV1, int noV, int lengthV, char c) // gives bordered line
-// spcaeV1 gives spcaing from first left column on console,noV determines no of vertical border,lengthV determines the width of vertical border
+// spaceV1 gives spacing from first left column on console, noV determines no of vertical border,lengthV determines the width of vertical border
 {
     int m, g;
     int p;
@@ -56,15 +56,15 @@ void vertiline(int spaceV1, int noV, int lengthV, char c) // gives bordered line
     }
 }
 
-void space(int n) // this fumction gives spacing from left column of console screen
-// n determines no of spacing from left column in terms od \t
+void space(int n) // this function gives spacing from left column of console screen
+// n determines no of spacing from left column in terms of \t
 {
     int q;
     for (q = 0; q < n; q++)
         printf("\t");
 }
 void alignborder(char str[], int spaceAB1, int spaceAB2, int lengthAB, char c) // assign border and position to string
-// lengthAB dtermines spacing between two vertical border,spaceAB1=determines no of spacing from left column in terms od \t,spaceAB2=determines no of spacing from left of first vertical border in terms od \t
+// lengthAB dtermines spacing between two vertical border,spaceAB1=determines no of spacing from left column in terms of \t,spaceAB2=determines no of spacing from left of first vertical border in terms od \t
 {
     int a, aum = 0, u;
     a = strlen(str);
@@ -82,8 +82,8 @@ void alignborder(char str[], int spaceAB1, int spaceAB2, int lengthAB, char c) /
 }
 
 void alignborderno(char str[], int spaceABN1, int spaceABN2, int lengthABN, char c, int i)
-// to provide two vwertical line with a string and processessible integer
-// lengthABN dtermines spacing between two vertical border,spaceABN1=determines no of spacing from left column in terms od \t,spaceABN2=determines no of spacing from left of first vertical border in terms od \t,i=integer value to printed.
+// to provide two vertical line with a string and processessible integer
+// lengthABN determines spacing between two vertical border,spaceABN1=determines no of spacing from left column in terms of \t,spaceABN2=determines no of spacing from left of first vertical border in terms od \t,i=integer value to printed.
 
 {
     int sum = 0, u, a = 0, no = i, remainder = 0, count = 0;
@@ -113,7 +113,7 @@ else
     printf("\n");
 }
 void alignborderfloatno(char str[], int spaceABFN1, int spaceABFN2, int lengthABFN, char c, float i)
-// to provide two vwertical line with a string and processessible real no.
+// to provide two vertical line with a string and processessible real no.
 // lengthABFN dtermines spacing between two vertical border,spaceABFN1=determines no of spacing from left column in terms od \t,spaceABFN2=determines no of spacing from left of first vertical border in terms od \t,i=real no. value to be printed.
 
 {
@@ -200,7 +200,7 @@ void menu()
    
     vertiline(8, 1, 68, ':');
     horiline(8, 70, 1, '.');
-    printf("Enter ur choice(1-3)");
+    printf("Enter your choice(1-3) : ");
     scanf("%d", &choice);
     if (choice == 1)
     {
@@ -331,7 +331,7 @@ int wordle()
     if (guessed_correctly)
     {
 
-        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD IN");
+        strcpy(str, "CONGRATULATIONS! YOU GUESSED THE CORRECT WORD ON ATTEMPT ");
         alignborderno(str, 1, 2, 98, '*', (num_of_guesses - 1));
 
         createStats(1);
@@ -735,10 +735,10 @@ void player1Move()
     do
     {
         printf("PLayer 1\n");
-        printf("Enter row (1-3):");
+        printf("Enter row (1-3): ");
         scanf("%d", &x);
         x--;
-        printf("Enter column (1-3):");
+        printf("Enter column (1-3): ");
         scanf("%d", &y);
         y--;
         if (board[x][y] != ' ')
@@ -762,10 +762,10 @@ void player2Move()
     do
     {
         printf("PLayer 2\n");
-        printf("Enter row (1-3):");
+        printf("Enter row (1-3): ");
         scanf("%d", &x1);
         x1--;
-        printf("Enter column (1-3):");
+        printf("Enter column (1-3): ");
         scanf("%d", &y1);
         y1--;
         if (board[x1][y1] != ' ')
