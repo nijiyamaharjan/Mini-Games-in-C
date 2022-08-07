@@ -369,7 +369,7 @@ int wordle()
     free(wordsList);
     free(fiveLetterWord);
     free(guess);
-    getchar();
+    
     return 0;
 }
 
