@@ -7,8 +7,7 @@
 #include <stdbool.h>
 #include <windows.h>
 
-char str[200] = {"apple"};
-char clue1[6] = {"XXXXX"};
+char str[200] = {"apple"}; //to be used later with the function strcpy
 
 // CLEAR THE SCREEN
 
@@ -86,7 +85,7 @@ void alignborderno(char str[], int spaceABN1, int spaceABN2, int lengthABN, char
 // lengthABN determines spacing between two vertical border,spaceABN1=determines no of spacing from left column in terms of \t,spaceABN2=determines no of spacing from left of first vertical border in terms od \t,i=integer value to printed.
 
 {
-    int sum = 0, u, a = 0, no = i, remainder = 0, count = 0;
+    int sum = 0, u, a = 0, no = i, count = 0;
     a = strlen(str);
     if (no ==0)
 count =1;
@@ -94,7 +93,6 @@ else
 {
     while (no != 0)
     {
-        remainder = no % 10;
         no = no / 10;
         count++;
     }
@@ -117,7 +115,7 @@ void alignborderfloatno(char str[], int spaceABFN1, int spaceABFN2, int lengthAB
 // lengthABFN dtermines spacing between two vertical border,spaceABFN1=determines no of spacing from left column in terms od \t,spaceABFN2=determines no of spacing from left of first vertical border in terms od \t,i=real no. value to be printed.
 
 {
-    int sum = 0, u, a = 0,floatno,remainder=0,count=0;
+    int sum = 0, u, a = 0,floatno, count=0;
     a = strlen(str);
     floatno= (int)i;
     if (floatno==0)
@@ -126,7 +124,6 @@ void alignborderfloatno(char str[], int spaceABFN1, int spaceABFN2, int lengthAB
     {
     while (floatno != 0)
     {
-        remainder = floatno % 10;
         floatno = floatno / 10;
         count++;
     }
@@ -159,13 +156,13 @@ void printWinner();
 
 bool processGuess();
 int wordleTitleScreen();
+void createStats();
 
 // FUNCTIONS FOR MAIN MENU
 
 void menu();
 int tictactoe();
 int wordle();
-int stats();
 
 int choice;
 
@@ -244,10 +241,6 @@ void menu()
 
 // WORDLE
 
-bool processGuess();
-int wordleTitleScreen();
-void createStats();
-
 int wordle()
 {
 
@@ -323,8 +316,6 @@ int wordle()
         guessed_correctly = processGuess(answer, guess);
     }
 
-    float winPercent = 0;
-
     // display end of game message
     system("cls");
     horiline(1, 100, 1, '*');
@@ -369,7 +360,7 @@ int wordle()
     free(wordsList);
     free(fiveLetterWord);
     free(guess);
-    getchar();
+    
     return 0;
 }
 
@@ -410,7 +401,7 @@ void createStats(int flag)
 
     winpercent = (float)w / ((float)w + (float)l) * 100.0;
     strcpy(str, "TOTAL GAMES PLAYED");
-    alignborderno(str, 1, 2, 98,'*',(w+1));
+    alignborderno(str, 1, 2, 98,'*',(w+l));
     strcpy(str, "WIN PERCENT");
     alignborderfloatno(str, 1, 2, 98, '*', winpercent);
     strcpy(str, "WIN STREAK");
